@@ -6,11 +6,13 @@ import Display from './display';
 import StartButton from './startButton';
 //--import Components over--
 
+import { createStage } from '../gameHelpers.js';
+
 const Tetris = () => {
 
   return (
     <div>
-      <Stage/>
+      <Stage stage={createStage()}/>
       <aside>
         <div>
         <Display text="Score"/>
