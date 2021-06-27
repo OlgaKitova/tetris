@@ -2,6 +2,8 @@ import React from 'react';
 
 import Cell from './cell';
 
-export const Stage = ({stage}) => (
+const Stage = ({stage}) => (
   <div><Cell/></div>
 )
+
+export default Stage;

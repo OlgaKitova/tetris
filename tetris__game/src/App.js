@@ -2,9 +2,11 @@ import React from 'react';
 import Tetris from './components/tetris.js';
 
 
-export const App = () => (
+const App = () => (
   <div className="app">
     <Tetris/>
   </div>
 
 )
+
+export default App;

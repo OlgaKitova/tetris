@@ -1,5 +1,7 @@
-import react from 'react';
+import React from 'react';
 
-export const Display = ({gameOver, text}) => (
+const Display = ({gameOver, text}) => (
   <div>{text}</div>
 )
+
+export default Display;

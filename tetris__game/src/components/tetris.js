@@ -6,7 +6,7 @@ import Display from './display';
 import StartButton from './startButton';
 //--import Components over--
 
-export const Tetris = () => {
+const Tetris = () => {
 
   return (
     <div>
@@ -22,3 +22,5 @@ export const Tetris = () => {
     </div>
   )
 }
+
+export default Tetris;

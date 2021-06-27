@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const Cell = ({type}) => (
+const Cell = ({type}) => (
   <div>cell</div>
 
 )
+
+export default Cell;
