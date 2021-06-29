@@ -10,6 +10,7 @@ import StartButton from './startButton';
 import {usePlayer} from '../hooks/usePlayer';
 import {useStage} from '../hooks/useStage';
 import {useInterval} from '../hooks/useInterval';
+import { useGameStatus } from '../hooks/useGameStatus';
 //import style components
 import {StyledTetrisWrapper, StyledTetris} from './styles/styled__tetris';
 
@@ -20,6 +21,8 @@ const Tetris = () => {
 
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
+  const  [score, setScore, rows, setRows, level, setLevel] = useGameStatus();
+
 
   const movePlayer = dir => {
     if(!checkCollision(player, stage, {x: dir, y: 0})) { 
@@ -64,12 +67,22 @@ const Tetris = () => {
     }
   }
 
+  const keyUp = ({keyCode}) => {
+    if(!gameOver) {
+      if(keyCode === 40) {
+        setDropTime(1000);
+      }
+    }
+  }
+
+
+
   useInterval(() => {
     drop()
   }, dropTime)
   console.log('re-render');
   return (
-    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} > 
+    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp} > 
       <StyledTetris>
       <Stage stage={stage}/>
       <aside>
