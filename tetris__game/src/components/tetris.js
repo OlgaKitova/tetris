@@ -51,7 +51,6 @@ const Tetris = () => {
        updatePlayerPos({x: 0, y: 1, collided: false});
      } else {
        if(player.pos.y < 1 ) {
-         console.log("Game over");
          setGameOver(true);
          setDropTime(null);
        }
@@ -89,7 +88,8 @@ const Tetris = () => {
   useInterval(() => {
     drop()
   }, dropTime)
-  console.log('re-render');
+ 
+
   return (
     <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp} > 
       <StyledTetris>
