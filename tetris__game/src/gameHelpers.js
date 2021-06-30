@@ -1,12 +1,14 @@
 export const STAGE__WIDTH = 12;
 export const STAGE__HEIGHT = 20;
 
+
+//Create stage array
 export const createStage = () => 
   Array.from(Array(STAGE__HEIGHT), () =>
     Array(STAGE__WIDTH).fill([0, 'clear'])
   )
 
-
+// check collision - boolean return
   export const checkCollision = (player, stage, {x: moveX, y: moveY}) => {
 
       for(let y = 0; y < player.tetromino.length; y+=1) {

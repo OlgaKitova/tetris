@@ -9,7 +9,7 @@ export const usePlayer = () => {
     tetromino: TETROMINOS[0].shape,
     collided: false,
   });
-
+// func rotate tetromino
   const rotate = (matrix, dir) => {
 
     const rotatedTetro = matrix.map((_, index) => matrix.map(col => col[index]));
@@ -43,7 +43,7 @@ export const usePlayer = () => {
   }
 
 
-
+// move teromino
 const updatePlayerPos = ({x,y,collided}) => {
 
   setPlayer(prev => ({
@@ -54,6 +54,7 @@ const updatePlayerPos = ({x,y,collided}) => {
 
 }
 
+// new tetromino
 const resetPlayer = useCallback(() => {
   setPlayer({
     pos: {x: STAGE__WIDTH / 2 - 2, y: 0},
