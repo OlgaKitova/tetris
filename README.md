@@ -1,1 +1,1 @@
-# tetris
+# React Tetris game

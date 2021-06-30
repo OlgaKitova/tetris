@@ -5,8 +5,9 @@ import bg__image from '../../img/background.png';
 export const StyledTetrisWrapper = styled.div`
 width: 100vw;
 height: 100vh;
-background: url(${bg__image}) #000;
-background-size: cover;
+background: url(${bg__image}) rgba(0,0,0,0.6);
+background-blend-mode: darken;
+background-size: contain;
 overflow: hidden;
 `
 

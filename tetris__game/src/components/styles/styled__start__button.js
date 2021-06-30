@@ -8,9 +8,10 @@ min-height: 30px;
 width: 100%;
 border-radius: 20px;
 border: none;
-color: white;
-background: #333;
+color: #000;
+background: #EEFF05;
 outline: none;
 cursor: pointer;
-font-size: 1rem;
+font-size: 1.4rem;
+font-weight: 700;
 `
