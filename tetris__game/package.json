@@ -2,7 +2,7 @@
   "name": "tetris__game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://olgakitova.github.io/tetris/tetris__game/",
+  "homepage": "https://olgakitova.github.io/tetris/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",

@@ -5,6 +5,7 @@ import {createStage, checkCollision} from '../gameHelpers';
 import Stage from './stage';
 import Display from './display';
 import StartButton from './startButton';
+import PauseButton from './pauseButton';
 //--import Components over--
 //import custom hooks
 import {usePlayer} from '../hooks/usePlayer';
@@ -104,6 +105,7 @@ const Tetris = () => {
         )}
         
         <StartButton callback={startGame}/>
+        <PauseButton/>
       </aside>
       </StyledTetris>
     </StyledTetrisWrapper>
