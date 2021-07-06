@@ -43,7 +43,6 @@ const Tetris = () => {
   }
 
   const pauseGame = () => {
-    console.log(pause);
     if(pause) {
       setDropTime(1000 / (level + 1) + 200);
       pause = !pause;
@@ -79,12 +78,20 @@ const Tetris = () => {
     if(!gameOver) {
       if(keyCode === 37){
         movePlayer(-1);
+        pause = true;
+        pauseGame();
       } else if(keyCode === 39) {
         movePlayer(1);
+        pause = true;
+        pauseGame();
       } else if(keyCode === 40) {
         dropPlayer();
+        pause = true;
+        pauseGame();
       } else if(keyCode === 38) {
-        playerRotate(stage, 1)
+        playerRotate(stage, 1);
+        pause = true;
+        pauseGame();
       }
     }
   }
@@ -93,6 +100,8 @@ const Tetris = () => {
     if(!gameOver) {
       if(keyCode === 40) {
         setDropTime(1000 / (level + 1) + 200);
+        pause = true;
+        pauseGame();
       }
     }
   }
@@ -104,7 +113,7 @@ const Tetris = () => {
   }, dropTime)
 
   return (
-    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp} > 
+    <StyledTetrisWrapper role="button" tabIndex="0"  autoFocus={true} onBlur={({ target }) => target.focus()} onKeyDown={e => move(e)} onKeyUp={keyUp}> 
       <StyledTetris>
       <Stage stage={stage}/>
       <aside>
