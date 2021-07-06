@@ -15,6 +15,8 @@ import { useGameStatus } from '../hooks/useGameStatus';
 //import style components
 import {StyledTetrisWrapper, StyledTetris} from './styles/styled__tetris';
 
+export let pause = false;
+
 const Tetris = () => {
 
   const [dropTime, setDropTime] = useState(null);
@@ -23,7 +25,6 @@ const Tetris = () => {
   const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
   const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
   const  [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
-
 
   const movePlayer = dir => {
     if(!checkCollision(player, stage, {x: dir, y: 0})) { 
@@ -41,6 +42,18 @@ const Tetris = () => {
    setLevel(0);
   }
 
+  const pauseGame = () => {
+    console.log(pause);
+    if(pause) {
+      setDropTime(1000 / (level + 1) + 200);
+      pause = !pause;
+      return pause;
+    } else if(!pause) {
+      setDropTime(null); 
+      pause = !pause; 
+      return pause;
+    }
+  }
   const drop = () => {
 
     if(rows > (level + 1) * 10) {
@@ -89,7 +102,6 @@ const Tetris = () => {
   useInterval(() => {
     drop()
   }, dropTime)
- 
 
   return (
     <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp} > 
@@ -103,9 +115,8 @@ const Tetris = () => {
         <Display text={`Level: ${level}`}/>
         </div>
         )}
-        
         <StartButton callback={startGame}/>
-        <PauseButton/>
+        <PauseButton callback={pauseGame} pause={pause}/>
       </aside>
       </StyledTetris>
     </StyledTetrisWrapper>

@@ -15,3 +15,19 @@ cursor: pointer;
 font-size: 1.4rem;
 font-weight: 700;
 `
+
+export const StyledStartAgainButton = styled.button`
+box-sizing: border-box;
+margin: 0 0 20px 0;
+padding: 15px;
+min-height: 30px;
+width: 100%;
+border-radius: 20px;
+border: none;
+color: #000;
+background: #ff0505;
+outline: none;
+cursor: pointer;
+font-size: 1.4rem;
+font-weight: 700;
+`
